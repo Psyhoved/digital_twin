@@ -20,7 +20,7 @@ dotenv.load_dotenv()
 
 TELEGRAM_BOT_TOKEN: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
 OPENROUTER_API_BASE: str = os.getenv("OPENROUTER_API_BASE", "https://openrouter.ai/api/v1")
-
+print(TELEGRAM_BOT_TOKEN)
 # Load all OPENROUTER_API_KEY-like env vars: OPENROUTER_API_KEY, OPENROUTER_API_KEY2, OPENROUTER_API_KEY3, ...
 # Also support a comma-separated OPENROUTER_API_KEYS if provided
 _api_keys_from_single_var = [k.strip() for k in os.getenv("OPENROUTER_API_KEYS", "").split(",") if k.strip()]
@@ -51,7 +51,7 @@ chat_id_to_model_key: Dict[int, str] = {}
 chat_id_to_key_index: Dict[int, int] = {}
 
 # Load training examples (same as notebook logic uses df)
-EXCEL_PATH: str = os.getenv("EXAMPLES_XLSX_PATH", "Саня таблицы.xlsx")
+EXCEL_PATH: str = os.getenv("EXAMPLES_XLSX_PATH", "База_знаний.xlsx")
 try:
     training_df: pd.DataFrame = pd.read_excel(EXCEL_PATH)
 except Exception:
